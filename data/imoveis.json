@@ -88,7 +88,7 @@
       "codigo": "EX-05",
       "titulo": "Apartamento alto padrão",
       "finalidade": "Aluguel",
-      "status": "Alugado",
+      "status": "Disponível",
       "destaque": false,
       "tipo": "Apartamento",
       "bairro": "Panamby",
