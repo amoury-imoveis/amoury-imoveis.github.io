@@ -1,0 +1,48 @@
+# Painel de edição gratuito: https://app.pagescms.org (entrar com a conta do GitHub)
+media:
+  input: assets/imoveis
+  output: assets/imoveis
+  categories: [image]
+
+content:
+  - name: imoveis
+    label: Imóveis
+    type: file
+    path: data/imoveis.json
+    format: json
+    fields:
+      - name: imoveis
+        label: Imóveis
+        type: object
+        list: true
+        fields:
+          - { name: codigo, label: Código (ex. AM-01), type: string, required: true }
+          - { name: titulo, label: Título do anúncio, type: string, required: true }
+          - name: finalidade
+            label: Finalidade
+            type: select
+            options: { values: [Venda, Aluguel] }
+            default: Venda
+          - name: status
+            label: Situação
+            type: select
+            options: { values: [Disponível, Reservado, Vendido, Alugado] }
+            default: Disponível
+          - { name: destaque, label: Mostrar primeiro (destaque), type: boolean, default: false }
+          - name: tipo
+            label: Tipo
+            type: select
+            options: { values: [Apartamento, Casa, Casa em condomínio, Cobertura, Studio, Terreno, Sala comercial] }
+          - name: bairro
+            label: Bairro
+            type: select
+            options: { values: [Morumbi, Vila Andrade, Panamby, Jardim Sul, Real Parque, Vila Sônia, Outro] }
+          - { name: preco, label: Preço (R$ — no aluguel, valor mensal), type: number }
+          - { name: condominio, label: Condomínio (R$/mês), type: number }
+          - { name: iptu, label: IPTU (R$/mês), type: number }
+          - { name: area, label: Área útil (m²), type: number }
+          - { name: dormitorios, label: Dormitórios, type: number }
+          - { name: suites, label: Suítes, type: number }
+          - { name: vagas, label: Vagas, type: number }
+          - { name: descricao, label: Descrição, type: text }
+          - { name: fotos, label: Fotos (a primeira é a capa), type: image, list: true }

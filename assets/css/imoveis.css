@@ -1,0 +1,151 @@
+/* =========================================================
+   VITRINE DE IMÓVEIS
+   ========================================================= */
+.listings { background: #fff; }
+.listings__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1.5rem; margin-bottom: 2.6rem; }
+.listings__head .title { margin-bottom: 0; }
+.chips { display: flex; gap: .5rem; padding: 5px; border-radius: 999px; background: var(--sand); border: 1px solid #e6dcc6; }
+.chip { border: 0; background: none; padding: .65rem 1.3rem; border-radius: 999px; font-weight: 700; font-size: .92rem; color: var(--muted); transition: all .35s var(--ease); }
+.chip:hover { color: var(--navy-900); }
+.chip.is-active { background: var(--navy-900); color: var(--gold-300); box-shadow: 0 10px 20px -10px rgba(10, 22, 40, .6); }
+.listings__active { margin: -1.2rem 0 1.6rem; font-size: .92rem; color: var(--muted); }
+.listings__active button { border: 0; background: none; color: var(--gold-600); font-weight: 700; text-decoration: underline; padding: 0 .3rem; }
+
+.props { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
+.props__loading { grid-column: 1 / -1; display: flex; justify-content: center; gap: .5rem; padding: 3rem 0; }
+.props__loading span { width: 10px; height: 10px; border-radius: 50%; background: var(--gold-500); animation: bounce 1s infinite alternate; }
+.props__loading span:nth-child(2) { animation-delay: .2s; }
+.props__loading span:nth-child(3) { animation-delay: .4s; }
+@keyframes bounce { to { transform: translateY(-10px); opacity: .4; } }
+.props__empty { grid-column: 1 / -1; text-align: center; padding: 3rem 1rem; border: 1.5px dashed #e3d8bf; border-radius: var(--radius); color: var(--muted); }
+.props__empty strong { display: block; font-family: var(--serif); font-size: 1.4rem; color: var(--navy-900); margin-bottom: .4rem; }
+
+.prop {
+  position: relative; display: flex; flex-direction: column; border-radius: var(--radius); overflow: hidden;
+  background: #fff; border: 1px solid #ece4d3; cursor: pointer; text-align: left; padding: 0; font: inherit; color: inherit;
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .4s;
+  animation: rise .6s var(--ease) both;
+}
+.prop:hover { transform: translateY(-8px); box-shadow: var(--shadow); border-color: transparent; }
+.prop:focus-visible { outline: 3px solid var(--gold-500); outline-offset: 3px; }
+.prop__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--sand); }
+.prop__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.prop:hover .prop__media img { transform: scale(1.08); }
+.prop__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5, 13, 26, .35), transparent 30%, transparent 65%, rgba(5, 13, 26, .55)); }
+.prop__tag { position: absolute; z-index: 1; left: 14px; top: 14px; padding: .35rem .85rem; border-radius: 999px; font-size: .75rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; background: var(--gold-grad); color: var(--navy-950); }
+.prop__tag--aluguel { background: #fff; color: var(--navy-900); }
+.prop__code { position: absolute; z-index: 1; right: 14px; top: 14px; padding: .3rem .7rem; border-radius: 8px; font-size: .72rem; font-weight: 700; color: #fff; background: rgba(5, 13, 26, .55); backdrop-filter: blur(6px); }
+.prop__photos { position: absolute; z-index: 1; right: 14px; bottom: 12px; font-size: .75rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: .3rem; }
+.prop__photos .ico { width: 15px; height: 15px; }
+.prop__body { padding: 1.3rem 1.4rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
+.prop__loc { display: flex; align-items: center; gap: .35rem; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-600); }
+.prop__loc .ico { width: 15px; height: 15px; }
+.prop__title { font-weight: 800; font-size: 1.12rem; color: var(--navy-900); margin: .35rem 0 .8rem; line-height: 1.25; }
+.prop__feats { display: flex; flex-wrap: wrap; gap: .4rem 1rem; list-style: none; padding: 0; margin: 0 0 1.1rem; font-size: .88rem; color: var(--muted); }
+.prop__feats li { display: flex; align-items: center; gap: .35rem; }
+.prop__feats .ico { width: 17px; height: 17px; color: var(--gold-600); }
+.prop__foot { margin-top: auto; padding-top: 1rem; border-top: 1px solid #f0eadc; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.prop__price { font-size: 1.35rem; font-weight: 800; color: var(--navy-900); letter-spacing: -.01em; }
+.prop__price small { font-size: .85rem; font-weight: 600; color: var(--muted); }
+.prop__more { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--sand); color: var(--navy-900); transition: all .4s var(--ease); }
+.prop:hover .prop__more { background: var(--navy-900); color: var(--gold-300); transform: rotate(-45deg); }
+
+/* Vendido / Alugado / Reservado */
+.prop.is-closed .prop__media img { filter: grayscale(1) brightness(.75); }
+.prop.is-closed .prop__price { color: var(--muted); }
+.prop__ribbon {
+  position: absolute; z-index: 2; left: 50%; top: 50%; translate: -50% -50%; rotate: -8deg;
+  padding: .55rem 1.6rem; border: 2.5px solid #fff; border-radius: 10px;
+  font-family: var(--serif); font-size: 1.6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff;
+  background: rgba(168, 40, 40, .85); box-shadow: 0 12px 30px rgba(0, 0, 0, .35); white-space: nowrap;
+}
+.prop__ribbon--reservado { background: rgba(236, 210, 145, .95); color: var(--navy-950); border-color: var(--navy-950); }
+.listings__more { display: flex; justify-content: center; margin-top: 2.4rem; }
+.listings__more [hidden] { display: none; }
+
+.listings__layout { display: grid; grid-template-columns: 1fr 340px; gap: 2rem; align-items: start; }
+.link-more { display: inline-flex; align-items: center; gap: .5rem; border: 0; background: none; color: var(--gold-600); font-weight: 700; font-size: 1rem; padding: .3rem 0; }
+.link-more .ico { transition: transform .4s var(--ease); }
+.link-more:hover .ico { transform: translateX(6px); }
+
+.talk {
+  position: sticky; top: 96px; padding: 2rem 1.8rem; border-radius: 18px; color: #fff; text-align: left;
+  background: radial-gradient(120% 120% at 0% 0%, var(--navy-700), var(--navy-900) 60%);
+  box-shadow: var(--shadow); overflow: hidden;
+}
+.talk::after { content: ""; position: absolute; right: -70px; top: -70px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(212, 168, 73, .28), transparent 65%); pointer-events: none; }
+.talk__photo { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; object-position: center 20%; border: 3px solid var(--gold-500); margin-bottom: 1rem; }
+.talk h3 { font-size: 1.55rem; font-weight: 800; margin-bottom: .3rem; }
+.talk > p { color: rgba(255, 255, 255, .78); font-size: 1.05rem; margin-bottom: 1.4rem; }
+.talk__wa { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: .7rem; padding: 1rem; border-radius: 12px; background: linear-gradient(180deg, #2fd56c, #1fb455); color: #fff; font-weight: 800; font-size: 1.3rem; box-shadow: 0 14px 30px -12px rgba(37, 211, 102, .7); transition: transform .3s var(--ease); }
+.talk__wa .ico { width: 30px; height: 30px; }
+.talk__wa:hover { transform: translateY(-2px); }
+.talk__row { position: relative; z-index: 1; display: flex; align-items: center; gap: .9rem; padding: 1rem .2rem; border-bottom: 1px solid rgba(255, 255, 255, .1); font-weight: 600; font-size: 1.02rem; transition: color .3s; }
+.talk__wa + .talk__row { margin-top: .6rem; }
+.talk__row:last-child { border-bottom: 0; padding-bottom: 0; }
+.talk__row .ico { width: 30px; height: 30px; color: var(--gold-400); }
+.talk__row:hover { color: var(--gold-300); }
+.talk__row[hidden] { display: none; }
+
+/* Modal do imóvel */
+.modal { position: fixed; inset: 0; z-index: 210; display: grid; place-items: center; padding: 3vh 16px; background: rgba(5, 13, 26, .78); backdrop-filter: blur(8px); animation: fadeIn .3s; overflow-y: auto; }
+.modal[hidden] { display: none; }
+.modal__box { position: relative; width: min(920px, 100%); background: #fff; border-radius: 26px; overflow: hidden; box-shadow: 0 50px 100px -30px rgba(0, 0, 0, .7); animation: zoomIn .45s var(--ease); margin: auto; }
+.modal__close { position: absolute; z-index: 3; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(5, 13, 26, .6); color: #fff; display: grid; place-items: center; backdrop-filter: blur(6px); transition: background .3s; }
+.modal__close:hover { background: var(--gold-500); color: var(--navy-900); }
+.modal__media { position: relative; aspect-ratio: 16 / 9; background: var(--navy-900); }
+.modal__media img { width: 100%; height: 100%; object-fit: cover; }
+.modal__media.is-closed img { filter: grayscale(.9); }
+.modal__status { position: absolute; left: 16px; top: 16px; padding: .4rem .9rem; border-radius: 999px; font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; background: var(--gold-grad); color: var(--navy-950); }
+.modal__status.is-closed { background: #a82828; color: #fff; }
+.modal__nav { position: absolute; top: 50%; translate: 0 -50%; width: 46px; height: 46px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, .9); color: var(--navy-900); display: grid; place-items: center; box-shadow: 0 8px 20px rgba(0, 0, 0, .25); transition: transform .3s var(--ease); }
+.modal__nav:hover { transform: scale(1.1); }
+.modal__nav[hidden] { display: none; }
+.modal__nav--prev { left: 14px; }
+.modal__nav--next { right: 14px; }
+.modal__count { position: absolute; right: 16px; bottom: 14px; padding: .25rem .7rem; border-radius: 999px; font-size: .78rem; font-weight: 700; color: #fff; background: rgba(5, 13, 26, .6); }
+.modal__thumbs { display: flex; gap: .5rem; padding: .7rem 1rem 0; overflow-x: auto; }
+.modal__thumbs:empty { display: none; }
+.modal__thumbs button { flex: 0 0 auto; width: 84px; height: 60px; padding: 0; border: 2px solid transparent; border-radius: 10px; overflow: hidden; opacity: .6; transition: all .3s; background: none; }
+.modal__thumbs button.is-active { border-color: var(--gold-500); opacity: 1; }
+.modal__thumbs img { width: 100%; height: 100%; object-fit: cover; }
+.modal__body { padding: 1.6rem clamp(1.2rem, 3vw, 2.4rem) 2rem; }
+.modal__meta { font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-600); margin-bottom: .3rem; }
+.modal__title { font-weight: 800; font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem); color: var(--navy-900); }
+.modal__price { font-size: 1.8rem; font-weight: 800; color: var(--navy-900); margin: .6rem 0 1.2rem; }
+.modal__price small { font-size: 1rem; color: var(--muted); font-weight: 600; }
+.feats { list-style: none; padding: 0; margin: 0 0 1.2rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: .7rem; }
+.feats li { padding: .9rem; border-radius: 14px; background: var(--sand); text-align: center; font-size: .82rem; color: var(--muted); }
+.feats strong { display: block; font-size: 1.25rem; color: var(--navy-900); }
+.costs { display: flex; flex-wrap: wrap; gap: .4rem 1.8rem; margin: 0 0 1.2rem; font-size: .92rem; }
+.costs div { display: flex; gap: .4rem; }
+.costs dt { color: var(--muted); }
+.costs dd { margin: 0; font-weight: 700; color: var(--navy-900); }
+.modal__desc { color: #3b4557; white-space: pre-line; margin-bottom: 1.6rem; }
+.modal__actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+.modal__legal { margin: 1.2rem 0 0; font-size: .78rem; color: var(--muted); }
+.modal__legal:empty { display: none; }
+
+@media (max-width: 1100px) {
+  .listings__layout { grid-template-columns: 1fr; }
+  .talk { position: static; display: grid; grid-template-columns: auto 1fr; column-gap: 1.2rem; }
+  .talk__photo { grid-row: span 2; }
+  .talk > p { margin-bottom: 1rem; }
+  .talk__wa, .talk__row { grid-column: 1 / -1; }
+}
+@media (max-width: 960px) {
+  .props { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .props { grid-template-columns: 1fr; }
+  .listings__head { margin-bottom: 1.8rem; }
+  .chips { width: 100%; }
+  .chip { flex: 1; padding: .6rem .5rem; }
+  .talk { padding: 1.6rem; }
+  .talk__wa { font-size: 1.15rem; }
+  .feats { grid-template-columns: repeat(2, 1fr); }
+  .modal { padding: 0; place-items: end center; }
+  .modal__box { border-radius: 22px 22px 0 0; margin: 8vh 0 0; }
+  .modal__actions .btn { flex: 1; white-space: nowrap; --pad: .9rem 1rem; font-size: .92rem; }
+  .finder__tabs button { flex: 1; padding: .5rem .4rem; }
+}
