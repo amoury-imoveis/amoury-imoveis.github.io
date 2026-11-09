@@ -1,18 +1,24 @@
-# Como adicionar e editar imóveis (de graça, pelo celular ou PC)
+# Como cadastrar imóveis no site
 
-O site lê os imóveis do arquivo `data/imoveis.json`. Para editar sem mexer em código, use o **Pages CMS**:
+## Painel próprio (recomendado)
 
-1. Acesse **https://app.pagescms.org** e clique em **Sign in with GitHub**.
-2. Autorize o acesso ao repositório do site.
-3. Abra **Imóveis**. Cada item da lista é um anúncio:
-   - **Adicionar:** botão "Add an entry", preencha os campos e envie as fotos (a primeira é a capa).
-   - **Vendido/Alugado:** mude o campo **Situação**. O card fica em preto e branco com a faixa "VENDIDO"/"ALUGADO".
-   - **Reservado:** mostra uma faixa dourada "RESERVADO".
-   - **Destaque:** marca para aparecer primeiro.
-4. Clique em **Save**. Em cerca de 1 minuto o site é atualizado.
+Endereço: **https://amoury-imoveis.github.io/admin/**
 
-Dicas:
-- Fotos na horizontal, até ~1 MB cada.
-- O link de cada imóvel pode ser compartilhado (botão "Compartilhar" dentro do anúncio).
-- Apague os anúncios de exemplo (códigos EX-01 a EX-06) antes de divulgar o site.
-- Contatos e CRECI do responsável ficam em `assets/js/config.js`.
+1. Abra o **link de acesso** recebido no WhatsApp. Ele já entra direto e fica salvo no aparelho.
+2. Toque em **Cadastrar imóvel** e siga os 5 passos: fotos, o básico, valores, características e descrição.
+3. Toque em **Salvar e publicar**. Em cerca de 1 minuto aparece no site.
+
+- **Vendeu ou alugou?** Toque na situação do imóvel (ex.: "Disponível") e escolha **Vendido** ou **Alugado**.
+- **Editar:** botão do lápis. **Excluir:** botão da lixeira (apaga as fotos também).
+- As fotos são reduzidas automaticamente no celular antes de enviar.
+
+### Chave de acesso (para o administrador)
+
+O painel usa um token *fine-grained* do GitHub com acesso **somente** ao repositório
+`amoury-imoveis/amoury-imoveis.github.io` e permissão **Contents: Read and write**.
+O link de acesso é: `https://amoury-imoveis.github.io/admin/#chave=SEU_TOKEN`.
+Se o celular for perdido, revogue o token em GitHub → Settings → Developer settings → Personal access tokens e gere outro.
+
+## Alternativa: Pages CMS
+
+https://app.pagescms.org — login com GitHub ou por e-mail (colaborador convidado). Configuração em `.pages.yml`.

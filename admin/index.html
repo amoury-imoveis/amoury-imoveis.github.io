@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b1a30">
+  <title>Painel de Imóveis · Amoury</title>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="painel.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M5 12h14"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></g></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6"/></g></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13.5" r="3.5"/></g></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m15 6-6 6 6 6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m9 6 6 6-6 6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="m5 12 5 5 9-10"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.3l-5.6 2.9 1.1-6.3L2.9 9.5l6.3-.9Z"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></g></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 8.7-8.7M16 7l2.5 2.5M14 9l2 2"/></g></symbol>
+  </svg>
+
+  <!-- Topo -->
+  <header class="top">
+    <div class="top__in">
+      <a class="brand" href="../" target="_blank" rel="noopener">
+        <img src="../assets/img/logo.svg" alt="" width="36" height="36">
+        <span><strong>AMOURY</strong><small>Painel de imóveis</small></span>
+      </a>
+      <div class="top__actions" id="topActions" hidden>
+        <a class="pill" href="../#imoveis" target="_blank" rel="noopener"><svg><use href="#i-eye"/></svg><span>Ver site</span></a>
+        <button class="pill pill--ghost" id="logout" aria-label="Sair"><svg><use href="#i-out"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Entrar -->
+  <main class="screen" id="login" hidden>
+    <div class="login">
+      <div class="login__icon"><svg><use href="#i-key"/></svg></div>
+      <h1>Olá, Ricardo! 👋</h1>
+      <p>Para entrar, abra o <strong>link de acesso</strong> que você recebeu no WhatsApp. Se preferir, cole a chave de acesso abaixo.</p>
+      <form id="loginForm">
+        <input id="tokenInput" type="password" placeholder="Cole aqui a chave de acesso" autocomplete="off" spellcheck="false">
+        <button class="btn btn--gold btn--block" type="submit">Entrar</button>
+      </form>
+      <p class="login__err" id="loginErr" hidden></p>
+    </div>
+  </main>
+
+  <!-- Lista -->
+  <main class="screen" id="list" hidden>
+    <section class="hello">
+      <div>
+        <h1>Seus imóveis</h1>
+        <p id="summary">Carregando…</p>
+      </div>
+      <button class="btn btn--gold btn--big" id="newBtn"><svg><use href="#i-plus"/></svg> Cadastrar imóvel</button>
+    </section>
+
+    <div class="tabs" role="tablist">
+      <button class="is-on" data-f="todos">Todos</button>
+      <button data-f="Venda">Venda</button>
+      <button data-f="Aluguel">Aluguel</button>
+      <button data-f="fechados">Vendidos/Alugados</button>
+    </div>
+
+    <div class="cards" id="cards"></div>
+    <p class="hint">Dica: toque na situação de um imóvel para marcar como <b>Vendido</b> ou <b>Alugado</b> rapidinho.</p>
+  </main>
+
+  <!-- Formulário -->
+  <div class="sheet" id="sheet" hidden>
+    <form class="sheet__box" id="form" novalidate>
+      <header class="sheet__head">
+        <button type="button" class="icon-btn" id="closeForm" aria-label="Voltar"><svg><use href="#i-left"/></svg></button>
+        <h2 id="formTitle">Novo imóvel</h2>
+        <span></span>
+      </header>
+
+      <div class="sheet__body">
+        <section class="block">
+          <h3><span class="num">1</span> Fotos</h3>
+          <p class="help">A <b>primeira foto é a capa</b>. Use as setas para mudar a ordem. Prefira fotos na horizontal.</p>
+          <div class="photos" id="photos"></div>
+          <label class="drop">
+            <input type="file" id="fileInput" accept="image/*" multiple hidden>
+            <svg><use href="#i-camera"/></svg>
+            <strong>Adicionar fotos</strong>
+            <small>Toque para escolher da galeria ou tirar uma foto</small>
+          </label>
+        </section>
+
+        <section class="block">
+          <h3><span class="num">2</span> O básico</h3>
+          <label class="lbl">É para…</label>
+          <div class="seg" data-name="finalidade">
+            <button type="button" data-v="Venda">🏷️ Venda</button>
+            <button type="button" data-v="Aluguel">🔑 Aluguel</button>
+          </div>
+
+          <label class="lbl">Situação</label>
+          <div class="chips" data-name="status">
+            <button type="button" data-v="Disponível">Disponível</button>
+            <button type="button" data-v="Reservado">Reservado</button>
+            <button type="button" data-v="Vendido">Vendido</button>
+            <button type="button" data-v="Alugado">Alugado</button>
+          </div>
+
+          <label class="lbl" for="fTitulo">Título do anúncio</label>
+          <input id="fTitulo" name="titulo" placeholder="Ex.: Apartamento com varanda gourmet" maxlength="70">
+
+          <div class="row">
+            <div>
+              <label class="lbl">Tipo</label>
+              <select name="tipo" id="fTipo">
+                <option>Apartamento</option><option>Casa</option><option>Casa em condomínio</option><option>Cobertura</option><option>Studio</option><option>Terreno</option><option>Sala comercial</option>
+              </select>
+            </div>
+            <div>
+              <label class="lbl">Bairro</label>
+              <select name="bairro" id="fBairro">
+                <option>Morumbi</option><option>Vila Andrade</option><option>Panamby</option><option>Jardim Sul</option><option>Real Parque</option><option>Vila Sônia</option><option>Outro</option>
+              </select>
+            </div>
+          </div>
+
+          <label class="switch">
+            <input type="checkbox" id="fDestaque">
+            <span class="switch__ui"></span>
+            <span><b>Destaque</b><small>Aparece entre os primeiros no site</small></span>
+          </label>
+        </section>
+
+        <section class="block">
+          <h3><span class="num">3</span> Valores</h3>
+          <label class="lbl" for="fPreco" id="precoLbl">Preço de venda</label>
+          <div class="money"><span>R$</span><input id="fPreco" inputmode="numeric" placeholder="0"></div>
+          <div class="row">
+            <div>
+              <label class="lbl" for="fCond">Condomínio /mês</label>
+              <div class="money"><span>R$</span><input id="fCond" inputmode="numeric" placeholder="0"></div>
+            </div>
+            <div>
+              <label class="lbl" for="fIptu">IPTU /mês</label>
+              <div class="money"><span>R$</span><input id="fIptu" inputmode="numeric" placeholder="0"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="block">
+          <h3><span class="num">4</span> Características</h3>
+          <label class="lbl" for="fArea">Área útil</label>
+          <div class="money money--end"><input id="fArea" inputmode="numeric" placeholder="0"><span>m²</span></div>
+          <div class="steppers">
+            <div class="stepper" data-name="dormitorios"><span>🛏️ Dormitórios</span><div><button type="button" data-d="-1"><svg><use href="#i-minus"/></svg></button><output>0</output><button type="button" data-d="1"><svg><use href="#i-plus"/></svg></button></div></div>
+            <div class="stepper" data-name="suites"><span>🛁 Suítes</span><div><button type="button" data-d="-1"><svg><use href="#i-minus"/></svg></button><output>0</output><button type="button" data-d="1"><svg><use href="#i-plus"/></svg></button></div></div>
+            <div class="stepper" data-name="vagas"><span>🚗 Vagas</span><div><button type="button" data-d="-1"><svg><use href="#i-minus"/></svg></button><output>0</output><button type="button" data-d="1"><svg><use href="#i-plus"/></svg></button></div></div>
+          </div>
+        </section>
+
+        <section class="block">
+          <h3><span class="num">5</span> Descrição</h3>
+          <p class="help">Conte o que o imóvel tem de melhor: andar, vista, lazer do condomínio, reformas, proximidades.</p>
+          <textarea id="fDesc" rows="6" placeholder="Ex.: Apartamento amplo, andar alto com vista para o verde, varanda gourmet, condomínio com piscina e academia…"></textarea>
+
+          <details class="more">
+            <summary>Código do anúncio</summary>
+            <input id="fCodigo" placeholder="AM-01" maxlength="12">
+            <p class="help">Gerado automaticamente. Só mude se quiser.</p>
+          </details>
+        </section>
+      </div>
+
+      <footer class="sheet__foot">
+        <button type="button" class="btn btn--ghost" id="cancelForm">Cancelar</button>
+        <button type="submit" class="btn btn--gold"><svg><use href="#i-check"/></svg> Salvar e publicar</button>
+      </footer>
+    </form>
+  </div>
+
+  <!-- Menu de situação rápida -->
+  <div class="pop" id="statusPop" hidden>
+    <div class="pop__box">
+      <h3 id="popTitle">Mudar situação</h3>
+      <div class="pop__opts">
+        <button data-v="Disponível"><i class="dot dot--ok"></i> Disponível</button>
+        <button data-v="Reservado"><i class="dot dot--res"></i> Reservado</button>
+        <button data-v="Vendido"><i class="dot dot--off"></i> Vendido</button>
+        <button data-v="Alugado"><i class="dot dot--off"></i> Alugado</button>
+      </div>
+      <button class="btn btn--ghost btn--block" data-close>Cancelar</button>
+    </div>
+  </div>
+
+  <!-- Confirmação -->
+  <div class="pop" id="confirmPop" hidden>
+    <div class="pop__box">
+      <h3 id="confirmTitle">Tem certeza?</h3>
+      <p id="confirmText"></p>
+      <div class="pop__row">
+        <button class="btn btn--ghost" data-close>Cancelar</button>
+        <button class="btn btn--danger" id="confirmOk">Excluir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Salvando -->
+  <div class="busy" id="busy" hidden>
+    <div class="busy__box">
+      <div class="spinner" id="busySpin"></div>
+      <div class="done" id="busyDone" hidden><svg><use href="#i-check"/></svg></div>
+      <h3 id="busyTitle">Salvando…</h3>
+      <p id="busyText"></p>
+      <div class="busy__actions" id="busyActions" hidden>
+        <a class="btn btn--ghost" href="../#imoveis" target="_blank" rel="noopener">Ver no site</a>
+        <button class="btn btn--gold" id="busyOk">Ok, entendi</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="github.js"></script>
+  <script src="painel.js"></script>
+</body>
+</html>
