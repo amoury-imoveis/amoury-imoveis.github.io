@@ -1,15 +1,6 @@
 {
   "imoveis": [
     {
-      "codigo": "TESTE",
-      "titulo": "Teste do painel",
-      "finalidade": "Venda",
-      "status": "Vendido",
-      "fotos": [
-        "assets/imoveis/teste-zz-1.jpg"
-      ]
-    },
-    {
       "codigo": "EX-01",
       "titulo": "Apartamento com vista verde",
       "finalidade": "Venda",
