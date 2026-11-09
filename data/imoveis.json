@@ -1,6 +1,38 @@
 {
   "imoveis": [
     {
+      "codigo": "AM-01",
+      "titulo": "Apto Andre Segóvia Belém",
+      "finalidade": "Venda",
+      "status": "Disponível",
+      "destaque": true,
+      "tipo": "Apartamento",
+      "bairro": "Morumbi",
+      "preco": 360000,
+      "condominio": 720,
+      "iptu": 120,
+      "area": 60,
+      "dormitorios": 1,
+      "suites": 1,
+      "vagas": 1,
+      "descricao": "Apto Amplo, com vaga de garagem, piscina, 1 suite, centro de Belém",
+      "fotos": [
+        "assets/imoveis/am-01-mw9ed2ag-1.jpg",
+        "assets/imoveis/am-01-mw9ed2ag-2.jpg",
+        "assets/imoveis/am-01-mw9ed2ag-3.jpg",
+        "assets/imoveis/am-01-mw9ed2ag-4.jpg",
+        "assets/imoveis/am-01-mw9ed2ag-5.jpg",
+        "assets/imoveis/am-01-mw9ed2ag-6.jpg",
+        "assets/imoveis/am-01-mw9ed2ag-7.jpg",
+        "assets/imoveis/am-01-mw9ed2ag-8.jpg",
+        "assets/imoveis/am-01-mw9ed2ag-9.jpg",
+        "assets/imoveis/am-01-mw9ed2ag-10.jpg",
+        "assets/imoveis/am-01-mw9ed2ag-11.jpg",
+        "assets/imoveis/am-01-mw9ed2ag-12.jpg",
+        "assets/imoveis/am-01-mw9ed2ag-13.jpg"
+      ]
+    },
+    {
       "codigo": "EX-01",
       "titulo": "Apartamento com vista verde",
       "finalidade": "Venda",
