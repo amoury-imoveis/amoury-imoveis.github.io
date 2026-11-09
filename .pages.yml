@@ -14,7 +14,10 @@ content:
       - name: imoveis
         label: Imóveis
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{codigo} — {titulo} ({status})"
         fields:
           - { name: codigo, label: Código (ex. AM-01), type: string, required: true }
           - { name: titulo, label: Título do anúncio, type: string, required: true }
