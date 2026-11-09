@@ -200,7 +200,7 @@
     return attempt(1).then(function (fresh) {
       data = fresh;
       render();
-      busyDone(doneTitle || "Pronto! 🎉", "Em cerca de 1 minuto a mudança aparece no site.");
+      busyDone(doneTitle || "Pronto! 🎉", "Em 1 a 3 minutos a mudança aparece no site (se não aparecer, recarregue a página).");
       return true;
     }).catch(function () {
       $("busy").hidden = true;
